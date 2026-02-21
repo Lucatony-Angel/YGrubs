@@ -1,2 +1,2 @@
 # YGrubs
-Budget-friendly campus food picks for Yale students, ranked by distance and value.
+Ygrubs is a pickup-focused web app for Yale students that helps users find nearby food options within a budget. Users choose a Yale residential college as their starting point, enter a budget, and get a ranked list of restaurants with suggested meal combos that stay at or under the budget, sorted by walking distance and value. The MVP uses curated menu data and simple combo templates to provide fast, reliable recommendations for campus pickup.
