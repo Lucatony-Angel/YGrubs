@@ -1,0 +1,71 @@
+.page {
+  max-width: 560px;
+  margin: 48px auto;
+  padding: 0 16px;
+  font-family: sans-serif;
+}
+
+.card {
+  display: grid;
+  gap: 12px;
+  margin-top: 16px;
+  padding: 16px;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+}
+
+label {
+  display: grid;
+  gap: 6px;
+  font-weight: 600;
+}
+
+input,
+select,
+button {
+  padding: 10px;
+  font-size: 16px;
+}
+
+button {
+  cursor: pointer;
+}
+
+.results {
+  margin-top: 20px;
+}
+
+.results ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 10px;
+}
+
+.results li {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 12px;
+}
+
+.results h2,
+.results h3,
+.results p {
+  margin: 0;
+}
+
+.results h2 {
+  margin-bottom: 12px;
+}
+
+.results li p + p {
+  margin-top: 4px;
+  color: #555;
+}
+
+.error {
+  margin-top: 12px;
+  color: #b00020;
+  font-weight: 600;
+}

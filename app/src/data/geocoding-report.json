@@ -1,0 +1,183 @@
+{
+  "method": "straight_line_haversine_miles_from_nominatim_geocodes",
+  "college_addresses": {
+    "Trumbull": "241 Elm St, New Haven, CT 06511",
+    "Benjamin Franklin": "90 Prospect St, New Haven, CT 06511",
+    "Branford": "74 High St, New Haven, CT 06511",
+    "Ezra Stiles": "302 York St, New Haven, CT 06511",
+    "Jonathan Edwards": "68 High St, New Haven, CT 06511",
+    "Pauli Murray": "130 Prospect St, New Haven, CT 06511",
+    "Saybrook": "242 Elm St, New Haven, CT 06510",
+    "Timothy Dwight": "345 Temple St, New Haven, CT 06511",
+    "Berkeley": "205 Elm St, New Haven, CT 06511",
+    "Davenport": "248 York St, New Haven, CT 06511",
+    "Grace Hopper": "189 Elm St, New Haven, CT 06511",
+    "Morse": "304 York St, New Haven, CT 06511",
+    "Pierson": "261 Park St, New Haven, CT 06511",
+    "Silliman": "505 College St, New Haven, CT 06511"
+  },
+  "restaurants": [
+    {
+      "name": "Sally's Apizza",
+      "address": "237 Wooster St, New Haven, CT 06511"
+    },
+    {
+      "name": "Frank Pepe Pizzeria",
+      "address": "157 Wooster St, New Haven, CT 06511"
+    },
+    {
+      "name": "Modern Apizza",
+      "address": "874 State St, New Haven, CT 06511"
+    },
+    {
+      "name": "Yorkside Pizza",
+      "address": "288 York St, New Haven, CT 06511"
+    },
+    {
+      "name": "Good Nature Market (Broadway)",
+      "address": "15 Broadway, New Haven, CT 06511"
+    },
+    {
+      "name": "Good Nature Market (Whitney)",
+      "address": "44 Whitney Ave, New Haven, CT 06510"
+    },
+    {
+      "name": "Atticus Cafe Downtown",
+      "address": "1082 Chapel St, New Haven, CT 06510"
+    },
+    {
+      "name": "Atticus Market",
+      "address": "771 Orange St, New Haven, CT 06511"
+    },
+    {
+      "name": "Junzi kitchen",
+      "address": "21 Broadway, New Haven, CT 06511"
+    },
+    {
+      "name": "Claire's Corner Copia",
+      "address": "1000 Chapel St, New Haven, CT 06510"
+    },
+    {
+      "name": "Nice Day Chinese",
+      "address": "316 Elm St, New Haven, CT 06511"
+    },
+    {
+      "name": "Chipotle",
+      "address": "910 Chapel St, New Haven, CT 06510"
+    },
+    {
+      "name": "Chipotle",
+      "address": "250 Whalley Ave, New Haven, CT 06501"
+    }
+  ],
+  "geocoded_points": {
+    "241 Elm St, New Haven, CT 06511": {
+      "lat": 41.3105937,
+      "lon": -72.9292175
+    },
+    "90 Prospect St, New Haven, CT 06511": {
+      "lat": 41.3147338,
+      "lon": -72.9250155
+    },
+    "74 High St, New Haven, CT 06511": {
+      "lat": 41.3094004,
+      "lon": -72.9294815
+    },
+    "302 York St, New Haven, CT 06511": {
+      "lat": 41.3127568,
+      "lon": -72.9316079
+    },
+    "68 High St, New Haven, CT 06511": {
+      "lat": 41.3090406,
+      "lon": -72.9299
+    },
+    "130 Prospect St, New Haven, CT 06511": {
+      "lat": 41.315712,
+      "lon": -72.9247213
+    },
+    "242 Elm St, New Haven, CT 06510": {
+      "lat": 41.3101499,
+      "lon": -72.9291503
+    },
+    "345 Temple St, New Haven, CT 06511": {
+      "lat": 41.3103383,
+      "lon": -72.9236478
+    },
+    "205 Elm St, New Haven, CT 06511": {
+      "lat": 41.3110823,
+      "lon": -72.9273247
+    },
+    "248 York St, New Haven, CT 06511": {
+      "lat": 41.3104885,
+      "lon": -72.9317443
+    },
+    "189 Elm St, New Haven, CT 06511": {
+      "lat": 41.3097118,
+      "lon": -72.9274924
+    },
+    "304 York St, New Haven, CT 06511": {
+      "lat": 41.3128567,
+      "lon": -72.9296878
+    },
+    "261 Park St, New Haven, CT 06511": {
+      "lat": 41.3101937,
+      "lon": -72.9323827
+    },
+    "505 College St, New Haven, CT 06511": {
+      "lat": 41.3111744,
+      "lon": -72.9247093
+    },
+    "237 Wooster St, New Haven, CT 06511": {
+      "lat": 41.3030568,
+      "lon": -72.9200769
+    },
+    "157 Wooster St, New Haven, CT 06511": {
+      "lat": 41.3030235,
+      "lon": -72.9169338
+    },
+    "874 State St, New Haven, CT 06511": {
+      "lat": 41.3138251,
+      "lon": -72.9128344
+    },
+    "288 York St, New Haven, CT 06511": {
+      "lat": 41.3114611,
+      "lon": -72.9298358
+    },
+    "15 Broadway, New Haven, CT 06511": {
+      "lat": 41.3110905,
+      "lon": -72.9303016
+    },
+    "44 Whitney Ave, New Haven, CT 06510": {
+      "lat": 41.3117815,
+      "lon": -72.9223215
+    },
+    "1082 Chapel St, New Haven, CT 06510": {
+      "lat": 41.3079251,
+      "lon": -72.930575
+    },
+    "771 Orange St, New Haven, CT 06511": {
+      "lat": 41.3214522,
+      "lon": -72.9118368
+    },
+    "21 Broadway, New Haven, CT 06511": {
+      "lat": 41.3111323,
+      "lon": -72.9303411
+    },
+    "1000 Chapel St, New Haven, CT 06510": {
+      "lat": 41.3072653,
+      "lon": -72.9289571
+    },
+    "316 Elm St, New Haven, CT 06511": {
+      "lat": 41.3111213,
+      "lon": -72.9317011
+    },
+    "910 Chapel St, New Haven, CT 06510": {
+      "lat": 41.3062422,
+      "lon": -72.9264554
+    },
+    "250 Whalley Ave, New Haven, CT 06501": {
+      "lat": 41.315711,
+      "lon": -72.9412341
+    }
+  }
+}
