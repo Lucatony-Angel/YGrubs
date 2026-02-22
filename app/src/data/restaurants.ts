@@ -18,14 +18,23 @@ export const colleges = [
 export type Combo = {
   name: string;
   price: number;
-  valueScore: number;
+  rating?: number;
 };
+
+type MenuItem = {
+  id: string;
+  name: string;
+  price: number;
+  size?: string;
+  category: "main" | "side" | "drink";
+  rating?: number;
+}
 
 export type Restaurant = {
   name: string;
-  distances: Record<string, number>;
   address: string;
-  combos: Combo[];
+  distances: Record<string, number>;
+  menuItems: MenuItem[];
 };
 
 export const restaurants: Restaurant[] = [
@@ -48,9 +57,19 @@ export const restaurants: Restaurant[] = [
       Trumbull: 0.70,
     },
     address: "237 Wooster St, New Haven, CT 06511",
-    combos: [
-      { name: "2 slices + soda", price: 8.5, valueScore: 8.2 },
-      { name: "Personal pizza + soda", price: 11.5, valueScore: 9.1 },
+    menuItems: [
+    {id: "Mozz-Tomato-Sally's", name: "Mozzarella & Tomato Sauce Pie", price: 18.5, size: "small 12 inch ", category: "main"},
+    {id: "Tomato-sauce-Sally's", name: "Tomato Sauce Pie", price: 17.5, size: "Small 12 inch", category: "main"},
+    {id: "White-Pie-Sally's", name: "White Pie", price: 18.25, size: "Small 12 inch", category: "main"},
+    {id: "Potato-Rosemary-Sally's", name: "Potato & Rosemary", price: 18.75, size: "Small 12 inch", category: "main"},
+    {id: "Little-meatball-Sally's", name: "Spicy Little Meatball", price: 22.5, size: "Small 12 inch", category: "main"},
+    {id: "Clam-Pie-Sally's", name: "New Haven Original Clam Pie", price: 21.5, size: "Small 12 inch", category: "main"},
+    {id: "Meats-Pie-Sally's", name: "Meats Apizza", price: 26.5, size: "Small 12 inch", category: "main"},
+    {id: "", name: "House Salad", price: 13.75, category: "side"},
+    {id: "", name: "Caesar Salad", price: 14.75, category: "side"},
+    {id: "", name: "Caprese Salad", price: 14.5, category: "side"},
+    {id: "", name: "Coca Cola Bottle", price: 4, category: "drink"},
+    {id: "", name: "Fountain Soda", price: 3.95, category: "drink"}
     ],
   },
   {
@@ -72,9 +91,22 @@ export const restaurants: Restaurant[] = [
       Trumbull: 0.82,
     },
     address: "157 Wooster St, New Haven, CT 06511",
-    combos: [
-      { name: "Ramen + tea", price: 12, valueScore: 8.9 },
-      { name: "Rice bowl + dumplings", price: 13.5, valueScore: 9.3 },
+    menuItems: [
+    {id: "", name: "Original Tomato Pie", price: 11.25, size: "small 12 inch", category: "main"},
+    {id: "", name: "Original Tomato Pie with Mozzarella", price: 13.75, size: "small 12 inch", category: "main"},
+    {id: "", name: "Mozzarella and Pepperoni", price: 16.25, size: "small 12 inch", category: "main"},
+    {id: "", name: "Shrimp (White Pizza)", price: 20.25, size: "small 12 inch", category: "main"},
+    {id: "", name: "Bacon & Onion", price: 17.75, size: "small 12 inch", category: "main"},
+    {id: "", name: "Chicken & Broccoli (White Pizza)", price: 19.25, size: "small 12 inch", category: "main"},
+    {id: "", name: "White Clam Pizza", price: 18.75, size: "small 12 inch", category: "main"},
+    {id: "", name: "Margherita", price: 15.75, size: "small 12 inch", category: "main"},
+    {id: "", name: "Doppio Pepperoni", price: 17.5, size: "small 12 inch", category: "main"},
+    {id: "", name: "Pepe's Italian Salad", price: 8, size: "", category: "side"},
+    {id: "", name: "Pepe's Italian Salad with Roasted Chicken", price: 11, size: "", category: "side"},
+    {id: "", name: "Caesar Salad", price: 8, size: "", category: "side"},
+    {id: "", name: "Caesar Salad with Roasted Chicken", price: 11, size: "", category: "side"},
+    {id: "", name: "Poland Spring water", price: 3.5, size: "16.9 oz", category: "drink"},
+    {id: "", name: "Soda", price: 3.5, size: "20 oz", category: "drink"}
     ],
   },
   {
@@ -96,33 +128,24 @@ export const restaurants: Restaurant[] = [
       Trumbull: 0.88,
     },
     address: "874 State St, New Haven, CT 06511",
-    combos: [
-      { name: "Chicken sandwich + fries", price: 10.5, valueScore: 8.7 },
-      { name: "Burger combo", price: 14, valueScore: 9.2 },
-    ],
-  },
-  {
-    name: "Yorkside Pizza",
-    distances: {
-      "Benjamin Franklin": 0.34,
-      Berkeley: 0.13,
-      Branford: 0.14,
-      Davenport: 0.12,
-      "Ezra Stiles": 0.13,
-      "Grace Hopper": 0.17,
-      "Jonathan Edwards": 0.17,
-      Morse: 0.10,
-      "Pauli Murray": 0.40,
-      Pierson: 0.16,
-      Saybrook: 0.10,
-      Silliman: 0.27,
-      "Timothy Dwight": 0.33,
-      Trumbull: 0.07,
-    },
-    address: "288 York St, New Haven, CT 06511",
-    combos: [
-      { name: "Tofu bowl + spring roll", price: 9.75, valueScore: 8.8 },
-      { name: "Veggie platter", price: 11.25, valueScore: 8.6 },
+    menuItems: [
+      {id: "", name: "Plain Pizza", price: 14, size: "small", category: "main"},
+      {id: "", name: "Mozzarella", price: 14.5, size: "small", category: "main"},
+      {id: "", name: "American Cheese", price: 14.5, size: "small", category: "main"},
+      {id: "", name: "Pepper", price: 17.75, size: "small", category: "main"},
+      {id: "", name: "Meatball", price: 17.75, size: "small", category: "main"},
+      {id: "", name: "Salami", price: 17.75, size: "small", category: "main"},
+      {id: "", name: "Sausage", price: 17.75, size: "small", category: "main"},
+      {id: "", name: "Pepperoni", price: 17.75, size: "small", category: "main"},
+      {id: "", name: "Artichoke", price: 18, size: "small", category: "main"},
+      {id: "", name: "Chicken", price: 18, size: "small", category: "main"},
+      {id: "", name: "Clams Casino", price: 19.5, size: "small", category: "main"},
+      {id: "", name: "Eggplant", price: 17.75, size: "small", category: "main"},
+      {id: "", name: "Italian Bomb", price: 23.75, size: "small", category: "main"},
+      {id: "", name: "Plain Calzone", price: 13.5, size: "small", category: "main"},
+      {id: "", name: "Bruschetta", price: 9.25, category: "side"},
+      {id: "", name: "Caesar Salad", price: 8.5, category: "side"},
+      {id: "", name: "Garlic Bread", price: 5.5, category: "side"}
     ],
   },
   {
@@ -144,10 +167,23 @@ export const restaurants: Restaurant[] = [
       Trumbull: 0.07,
     },
     address: "15 Broadway, New Haven, CT 06511",
-    combos: [
-      { name: "Pad thai + iced tea", price: 12.5, valueScore: 9.0 },
-      { name: "Fried rice + dumpling", price: 10.75, valueScore: 8.5 },
-    ],
+    menuItems: [
+    {id: "", name: "Egg With Meat Sandwich", price: 6, category: "main"},
+    {id: "", name: "Egg Sandwich", price: 4, category: "main"},
+    {id: "", name: "Gobbler", price: 11, category: "main"},
+    {id: "", name: "Hungry Man Hero", price: 11, category: "main"},
+    {id: "", name: "Steak Egg & Cheese Sandwich", price: 9, category: "main"},
+    {id: "", name: "Boar's Head Ham Sandwich (Hero)", price: 10,  category: "main"},
+    {id: "", name: "Genoa Salami Sandwich (Hero)", price: 10,  category: "main"},
+    {id: "", name: "Oven Roasted Chicken Breast Sandwich (Roll)", price: 9, category: "main"},
+    {id: "", name: "Blazing Buffalo Chicken Breast Sandwich (Hero)", price: 10, category: "main"},
+    {id: "", name: "Pepperoni Sandwich (Roll)", price: 9,  category: "main"},
+    {id: "", name: "Egg White & Turkey Wrap", price: 10, category: "main"},
+    {id: "", name: "Marilyn Monroe", price: 11, category: "main"},
+    {id: "", name: "High Protein Special", price: 11, category: "main"},
+    {id: "", name: "Cuban Sandwich (Sub)", price: 11, category: "main"},
+    {id: "", name: "Buffalo Chicken Sandwich", price: 11, category: "main"}
+    ]
   },
   {
     name: "Good Nature Market (Whitney)",
@@ -168,9 +204,24 @@ export const restaurants: Restaurant[] = [
       Trumbull: 0.37,
     },
     address: "44 Whitney Ave, New Haven, CT 06510",
-    combos: [
-      { name: "Pad thai + iced tea", price: 12.5, valueScore: 9.0 },
-      { name: "Fried rice + dumpling", price: 10.75, valueScore: 8.5 },
+    menuItems: [
+    {id: "", name: "Egg With Meat Sandwich", price: 6, category: "main"},
+    {id: "", name: "Gobbler", price: 11, category: "main"},
+    {id: "", name: "Egg Sandwich", price: 4, category: "main"},
+    {id: "", name: "Steak Egg & Cheese Sandwich", price: 9, category: "main"},
+    {id: "", name: "Ramen", price: 8.95, category: "main"},
+    {id: "", name: "Western Omelette Sandwich", price: 9, category: "main"},
+    {id: "", name: "SmokeMaster Black Forest Ham Sandwich", price: 9, category: "main"},
+    {id: "", name: "Cappy Ham Sandwich", price: 9, category: "main"},
+    {id: "", name: "Roast Beef Sandwich", price: 9, category: "main"},
+    {id: "", name: "Turkey BLT Wrap", price: 10.45, category: "main"},
+    {id: "", name: "Grilled Chicken Caesar Wrap", price: 10.45, category: "main"},
+    {id: "", name: "Grilled Chicken Wrap", price: 10.45, category: "main"},
+    {id: "", name: "Egg Whites & Sausage", price: 8.95, category: "main"},
+    {id: "", name: "High Protein Special", price: 11, category: "main"},
+    {id: "", name: "Spicy Chicken", price: 11, category: "main"},
+    {id: "", name: "Marilyn Monroe", price: 11, category: "main"},
+    {id: "", name: "Crazy Chicken", price: 11, category: "main"}
     ],
   },
   {
@@ -192,9 +243,27 @@ export const restaurants: Restaurant[] = [
       Trumbull: 0.20,
     },
     address: "1082 Chapel St, New Haven, CT 06510",
-    combos: [
-      { name: "Pad thai + iced tea", price: 12.5, valueScore: 9.0 },
-      { name: "Fried rice + dumpling", price: 10.75, valueScore: 8.5 },
+    menuItems: [
+      {id: "", name: "Country Sourdough", price: 9, category: "side"},
+      {id: "", name: "Grain Bowl", price: 14, category: "main"},
+      {id: "", name: "Croque Madame", price: 14.5, category: "main"},
+      {id: "", name: "French Toast Latte", price: 6.25, size: "small", category: "drink"},
+      {id: "", name: "Raspberry White Mocha", price: 6.25, size: "small", category: "drink"},
+      {id: "", name: "Sweetheart Chai", price: 6.25, size: "small", category: "drink"},
+      {id: "", name: "White Chocolate RAF", price: 5.35, size: "small", category: "drink"},
+      {id: "", name: "Ginger Turmeric Steamer", price: 4.85, size: "small", category: "drink"},
+      {id: "", name: "Drip Coffee", price: 2.9, size: "small", category: "drink"},
+      {id: "", name: "Iced Coffee", price: 3.5, size: "small", category: "drink"},
+      {id: "", name: "Cold Brew", price: 5.25, size: "small", category: "drink"},
+      {id: "", name: "Espresso", price: 3.5, size: "small", category: "drink"},
+      {id: "", name: "Americano", price: 3.95, size: "small", category: "drink"},
+      {id: "", name: "Mocha", price: 5.95, size: "small", category: "drink"},
+      {id: "", name: "Capuccino", price: 5, size: "small", category: "drink"},
+      {id: "", name: "Matcha Latte", price: 5.35, size: "small", category: "drink"},
+      {id: "", name: "Turkey Club", price: 10.5, category: "main"},
+      {id: "", name: "Hummus Sandwich", price: 8.5, category: "main"},
+      {id: "", name: "Chicken Caesar Salad", price: 13, category: "main"},
+      {id: "", name: "Pesto Pasta Salad", price: 6.5, category: "main"}
     ],
   },
   {
@@ -216,9 +285,24 @@ export const restaurants: Restaurant[] = [
       Trumbull: 1.17,
     },
     address: "771 Orange St, New Haven, CT 06511",
-    combos: [
-      { name: "Pad thai + iced tea", price: 12.5, valueScore: 9.0 },
-      { name: "Fried rice + dumpling", price: 10.75, valueScore: 8.5 },
+    menuItems: [
+      {id: "", name: "Latte", price: 5, size: "small", category: "drink"},
+      {id: "", name: "French Toast Latte", price: 6.25, size: "small", category: "drink"},
+      {id: "", name: "Sweerheart Chai", price: 6.25, size: "small", category: "drink"},
+      {id: "", name: "Golden Latte", price: 6.25, size: "small", category: "drink"},
+      {id: "", name: "Pistachio Matcha", price: 6.25, size: "small", category: "drink"},
+      {id: "", name: "Peppermint Mocha", price: 6.25, size: "small", category: "drink"},
+      {id: "", name: "Drip Coffee", price: 2.9, size: "small", category: "drink"},
+      {id: "", name: "Iced Latte", price: 5, size: "small", category: "drink"},
+      {id: "", name: "Espresso", price: 3.5, size: "small", category: "drink"},
+      {id: "", name: "Americano", price: 3.95, size: "small", category: "drink"},
+      {id: "", name: "Hot Matcha Latte", price: 5.35, size: "small", category: "drink"},
+      {id: "", name: "Iced Tea", price: 3.5, size: "small", category: "drink"},
+      {id: "", name: "Yogurt Parfait & Franola Cup", price: 7.5, size: "small", category: "side"},
+      {id: "", name: "Atticus Classic", price: 9, category: "main"},
+      {id: "", name: "Turkey Club", price: 10.5, category: "main"},
+      {id: "", name: "Avacado Salad", price: 12.5, category: "main"},
+      {id: "", name: "Salmon & Farro", price: 16, category: "main"}
     ],
   },
   {
@@ -240,33 +324,24 @@ export const restaurants: Restaurant[] = [
       Trumbull: 0.07,
     },
     address: "21 Broadway, New Haven, CT 06511",
-    combos: [
-      { name: "Pad thai + iced tea", price: 12.5, valueScore: 9.0 },
-      { name: "Fried rice + dumpling", price: 10.75, valueScore: 8.5 },
-    ],
-  },
-  {
-    name: "Claire's Corner Copia",
-    distances: {
-      "Benjamin Franklin": 0.56,
-      Berkeley: 0.28,
-      Branford: 0.15,
-      Davenport: 0.27,
-      "Ezra Stiles": 0.40,
-      "Grace Hopper": 0.19,
-      "Jonathan Edwards": 0.13,
-      Morse: 0.39,
-      "Pauli Murray": 0.62,
-      Pierson: 0.27,
-      Saybrook: 0.20,
-      Silliman: 0.35,
-      "Timothy Dwight": 0.35,
-      Trumbull: 0.23,
-    },
-    address: "1000 Chapel St, New Haven, CT 06510",
-    combos: [
-      { name: "Pad thai + iced tea", price: 12.5, valueScore: 9.0 },
-      { name: "Fried rice + dumpling", price: 10.75, valueScore: 8.5 },
+    menuItems: [
+      {id: "", name: "Bone Broth Beef Noodle Soup", price: 16.48, category: "main"},
+      {id: "", name: "Classic Chicken Noodle Soup", price: 14.48, category: "main"},
+      {id: "", name: "Tomato Egg Noodles & Slow-braised Pork", price: 15.48, category: "main"},
+      {id: "", name: "Furu Sesame Noodles & griddled Tofu", price: 13.98, category: "main"},
+      {id: "", name: "Sour Spicy Rice Noodles & Braised Beef", price: 16.48, category: "main"},
+      {id: "", name: "Spicy Sesame Noodles with Cantonese BBQ Chicken", price: 14.48, category: "main"},
+      {id: "", name: "Taiwan Pork Sausage Over Rice", price: 14.48, category: "main"},
+      {id: "", name: "Smashed Cucumber Salad", price: 1.49, category: "side"},
+      {id: "", name: "Pork Sausage", price: 1.99, size: "2 pc", category: "side"},
+      {id: "", name: "Pork Sausage", price: 1.49, size: "1 pc", category: "side"},
+      {id: "", name: "Beef Bone Broth", price: 1.99, size: "16 fl oz", category: "side"},
+      {id: "", name: "Classic Chicken Broth", price: 1.49, size: "16 fl oz", category: "side"},
+      {id: "", name: "Hawthorn Tea", price: 3.49, size: "16 fl oz", category: "drink"},
+      {id: "", name: "Jasmine Tea", price: 3.49, size: "16 fl oz", category: "drink"},
+      {id: "", name: "Yeshu Coconut Drink", price: 2.99, size: "8.2 fl oz", category: "drink"},
+      {id: "", name: "Lacriox Lemon Sparkling", price: 2.99, size: "12 fl oz", category: "drink"},
+      {id: "", name: "Coca Cola", price: 2.49, size: "12 fl oz", category: "drink"}
     ],
   },
   {
@@ -288,13 +363,32 @@ export const restaurants: Restaurant[] = [
       Trumbull: 0.13,
     },
     address: "316 Elm St, New Haven, CT 06511",
-    combos: [
-      { name: "Pad thai + iced tea", price: 12.5, valueScore: 9.0 },
-      { name: "Fried rice + dumpling", price: 10.75, valueScore: 8.5 },
+    menuItems: [
+      {id: "", name: "Ginger Beef", price: 15.99, category: "main"},
+      {id: "", name: "Crispy Fried Pork", price: 8.99, category: "main"},
+      {id: "", name: "House Wonton Soup", price: 13.99, category: "main"},
+      {id: "", name: "Beef Bone Broth Noodle Soup", price: 14.99, category: "main"},
+      {id: "", name: "Beef & Broccoli", price: 15.99, category: "main"},
+      {id: "", name: "Cheeseburger Egg Roll", price: 4.99, category: "side"},
+      {id: "", name: "Hometown Stir-Fried Pork Belly & Egg", price: 15.99, category: "main"},
+      {id: "", name: "General Tso's Chicken ", price: 14.99, category: "main"},
+      {id: "", name: "Spicy Sichuan Crispy Chicken", price: 14.99, category: "main"},
+      {id: "", name: "Sichuan Fries", price: 5.99, category: "side"},
+      {id: "", name: "Scallion Pancake", price: 4.99, category: "side"},
+      {id: "", name: "Edamame", price: 5.99, category: "side"},
+      {id: "", name: "Pork Xiao Long Bao (Soup Dumplings)", price: 9.99, size: "5 pc", category: "main"},
+      {id: "", name: "Steamed Pork Dumplings", price: 9.49, size: "8 pc", category: "main"},
+      {id: "", name: "Crab Rangoon", price: 6.99, size: "6 pc", category: "side"},
+      {id: "", name: "Grandma's Stir-Fried Tomatoes & Eggs", price: 13.99, category: "main"},
+      {id: "", name: "Sichuan Mapo Tofu", price: 12.99, category: "main"},
+      {id: "", name: "Coca Cola", price: 1.99, category: "drink"},
+      {id: "", name: "Diet Coke", price: 1.99, category: "drink"},
+      {id: "", name: "Ramune Melon Soda", price: 3.99, category: "drink"},
+      {id: "", name: "Kangshifu Green Tea Bottle", price: 2.99, category: "drink"}
     ],
   },
   {
-    name: "Chipotle",
+    name: "ShakeShack",
     distances: {
       "Benjamin Franklin": 0.59,
       Berkeley: 0.34,
@@ -311,34 +405,27 @@ export const restaurants: Restaurant[] = [
       "Timothy Dwight": 0.32,
       Trumbull: 0.33,
     },
-    address: "910 Chapel St, New Haven, CT 06510",
-    combos: [
-      { name: "Pad thai + iced tea", price: 12.5, valueScore: 9.0 },
-      { name: "Fried rice + dumpling", price: 10.75, valueScore: 8.5 },
-    ],
-  },
-  {
-    name: "Chipotle",
-    distances: {
-      "Benjamin Franklin": 0.84,
-      Berkeley: 0.79,
-      Branford: 0.75,
-      Davenport: 0.61,
-      "Ezra Stiles": 0.54,
-      "Grace Hopper": 0.82,
-      "Jonathan Edwards": 0.75,
-      Morse: 0.63,
-      "Pauli Murray": 0.86,
-      Pierson: 0.60,
-      Saybrook: 0.74,
-      Silliman: 0.91,
-      "Timothy Dwight": 0.99,
-      Trumbull: 0.72,
-    },
-    address: "250 Whalley Ave, New Haven, CT 06501",
-    combos: [
-      { name: "Pad thai + iced tea", price: 12.5, valueScore: 9.0 },
-      { name: "Fried rice + dumpling", price: 10.75, valueScore: 8.5 },
+    address: "986 Chapel St, New Haven, CT 06510",
+    menuItems: [
+      {id: "", name: "ShackBurger", price: 10.49, category: "main"},
+      {id: "", name: "Avocado Bacon Burger", price: 13.49, category: "main"},
+      {id: "", name: "Smoke Shack", price: 12.49, category: "main"},
+      {id: "", name: "Bacon Cheeseburger", price: 12.49, category: "main"},
+      {id: "", name: "Shack Stack", price: 12.99, category: "main"},
+      {id: "", name: "Grilled Cheese", price: 5.49, category: "main"},
+      {id: "", name: "K-Shack Fried Chicken Sandwich", price: 10.49, category: "main"},
+      {id: "", name: "K-Shack Fried Chicken Bites", price: 6.49, category: "main"},
+      {id: "", name: "Avocado Bacon Chicken", price: 11.49, category: "main"},
+      {id: "", name: "ShackBurger Lettuce Wrap", price: 7.99, category: "main"},
+      {id: "", name: "Chicken Shack Lettuce Wrap", price: 8.99, category: "main"},
+      {id: "", name: "K-Shack Spicy BBQ Fries", price: 5.49, category: "side"},
+      {id: "", name: "K-Shack Spice BBQ Cheese Fries", price: 6.49,category: "side"},
+      {id: "", name: "Fries", price: 3,  category: "side"},
+      {id: "", name: "Cheese Fries", price: 5.99,category: "side"},
+      {id: "", name: "Vanilla Shake", price: 5, category: "drink"},
+      {id: "", name: "Strawberry Shake", price: 5, category: "drink"},
+      {id: "", name: "Shack Made Lemonade", price: 3.99, category: "drink"},
+      {id: "", name: "50/50 Lemonades", price: 3.99, category: "drink"},
     ],
   },
 ];
