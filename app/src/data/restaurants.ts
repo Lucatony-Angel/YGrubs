@@ -21,14 +21,14 @@ export type Combo = {
   rating?: number;
 };
 
-type MenuItem = {
+export type MenuItem = {
   id: string;
   name: string;
   price: number;
   size?: string;
   category: "main" | "side" | "drink";
   rating?: number;
-}
+};
 
 export type Restaurant = {
   name: string;
@@ -205,23 +205,23 @@ export const restaurants: Restaurant[] = [
     },
     address: "44 Whitney Ave, New Haven, CT 06510",
     menuItems: [
-    {id: "good-nature-market-broadway-egg-with-meat-sandwich-2", name: "Egg With Meat Sandwich", price: 6, category: "main"},
-    {id: "good-nature-market-broadway-gobbler-2", name: "Gobbler", price: 11, category: "main"},
-    {id: "good-nature-market-broadway-egg-sandwich-2", name: "Egg Sandwich", price: 4, category: "main"},
-    {id: "good-nature-market-broadway-steak-egg-and-cheese-sandwich-2", name: "Steak Egg & Cheese Sandwich", price: 9, category: "main"},
-    {id: "good-nature-market-broadway-ramen", name: "Ramen", price: 8.95, category: "main"},
-    {id: "good-nature-market-broadway-western-omelette-sandwich", name: "Western Omelette Sandwich", price: 9, category: "main"},
-    {id: "good-nature-market-broadway-smokemaster-black-forest-ham-sandwich", name: "SmokeMaster Black Forest Ham Sandwich", price: 9, category: "main"},
-    {id: "good-nature-market-broadway-cappy-ham-sandwich", name: "Cappy Ham Sandwich", price: 9, category: "main"},
-    {id: "good-nature-market-broadway-roast-beef-sandwich", name: "Roast Beef Sandwich", price: 9, category: "main"},
-    {id: "good-nature-market-broadway-turkey-blt-wrap", name: "Turkey BLT Wrap", price: 10.45, category: "main"},
-    {id: "good-nature-market-broadway-grilled-chicken-caesar-wrap", name: "Grilled Chicken Caesar Wrap", price: 10.45, category: "main"},
-    {id: "good-nature-market-broadway-grilled-chicken-wrap", name: "Grilled Chicken Wrap", price: 10.45, category: "main"},
-    {id: "good-nature-market-broadway-egg-whites-and-sausage", name: "Egg Whites & Sausage", price: 8.95, category: "main"},
-    {id: "good-nature-market-broadway-high-protein-special-2", name: "High Protein Special", price: 11, category: "main"},
-    {id: "good-nature-market-broadway-spicy-chicken", name: "Spicy Chicken", price: 11, category: "main"},
-    {id: "good-nature-market-broadway-marilyn-monroe-2", name: "Marilyn Monroe", price: 11, category: "main"},
-    {id: "good-nature-market-broadway-crazy-chicken", name: "Crazy Chicken", price: 11, category: "main"}
+    {id: "good-nature-market-whitney-egg-with-meat-sandwich", name: "Egg With Meat Sandwich", price: 6, category: "main"},
+    {id: "good-nature-market-whitney-gobbler", name: "Gobbler", price: 11, category: "main"},
+    {id: "good-nature-market-whitney-egg-sandwich", name: "Egg Sandwich", price: 4, category: "main"},
+    {id: "good-nature-market-whitney-steak-egg-and-cheese-sandwich", name: "Steak Egg & Cheese Sandwich", price: 9, category: "main"},
+    {id: "good-nature-market-whitney-ramen", name: "Ramen", price: 8.95, category: "main"},
+    {id: "good-nature-market-whitney-western-omelette-sandwich", name: "Western Omelette Sandwich", price: 9, category: "main"},
+    {id: "good-nature-market-whitney-smokemaster-black-forest-ham-sandwich", name: "SmokeMaster Black Forest Ham Sandwich", price: 9, category: "main"},
+    {id: "good-nature-market-whitney-cappy-ham-sandwich", name: "Cappy Ham Sandwich", price: 9, category: "main"},
+    {id: "good-nature-market-whitney-roast-beef-sandwich", name: "Roast Beef Sandwich", price: 9, category: "main"},
+    {id: "good-nature-market-whitney-turkey-blt-wrap", name: "Turkey BLT Wrap", price: 10.45, category: "main"},
+    {id: "good-nature-market-whitney-grilled-chicken-caesar-wrap", name: "Grilled Chicken Caesar Wrap", price: 10.45, category: "main"},
+    {id: "good-nature-market-whitney-grilled-chicken-wrap", name: "Grilled Chicken Wrap", price: 10.45, category: "main"},
+    {id: "good-nature-market-whitney-egg-whites-and-sausage", name: "Egg Whites & Sausage", price: 8.95, category: "main"},
+    {id: "good-nature-market-whitney-high-protein-special", name: "High Protein Special", price: 11, category: "main"},
+    {id: "good-nature-market-whitney-spicy-chicken", name: "Spicy Chicken", price: 11, category: "main"},
+    {id: "good-nature-market-whitney-marilyn-monroe", name: "Marilyn Monroe", price: 11, category: "main"},
+    {id: "good-nature-market-whitney-crazy-chicken", name: "Crazy Chicken", price: 11, category: "main"}
     ],
   },
   {

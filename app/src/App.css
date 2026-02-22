@@ -47,6 +47,7 @@ button {
   border: 1px solid #ddd;
   border-radius: 10px;
   padding: 12px;
+  background: #fff;
 }
 
 .results h2,
@@ -64,8 +65,68 @@ button {
   color: #555;
 }
 
+.result-address {
+  margin-top: 4px;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.result-combo {
+  margin-top: 8px;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.result-template {
+  margin-top: 6px;
+  font-size: 0.88rem;
+  color: #2f4f6f;
+}
+
+.result-meta {
+  margin-top: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  color: #555;
+  font-size: 0.9rem;
+}
+
+.result-meta span {
+  background: #f3f5f7;
+  border-radius: 999px;
+  padding: 2px 8px;
+}
+
 .error {
   margin-top: 12px;
   color: #b00020;
   font-weight: 600;
+}
+
+@media (max-width: 640px) {
+  .page {
+    margin: 28px auto;
+    padding: 0 12px;
+  }
+
+  .card {
+    padding: 12px;
+  }
+
+  input,
+  select,
+  button {
+    font-size: 15px;
+    padding: 9px;
+  }
+
+  .results li {
+    padding: 10px;
+  }
+
+  .result-meta {
+    gap: 6px;
+    font-size: 0.85rem;
+  }
 }

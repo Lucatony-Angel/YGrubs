@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./App.css";
 import { colleges, restaurants } from "./data/restaurants";
+import { generateBestCombo } from "./Lib/reccomend";
 
 type College = (typeof colleges)[number];
 
@@ -9,6 +10,7 @@ type SearchResult = {
   distance: number;
   walkMinutes: number;
   address: string;
+  comboTemplate: string;
   comboName: string;
   comboPrice: number;
   valueScore: number;
@@ -17,6 +19,13 @@ type SearchResult = {
 function milesToWalkMinutes(distanceMiles: number): number {
   // Approximate walking speed: 3 mph
   return Math.max(1, Math.round((distanceMiles / 3) * 60));
+}
+
+function formatTemplate(template: string): string {
+  return template
+    .split("+")
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(" + ");
 }
 
 
@@ -47,26 +56,20 @@ function App() {
           return null;
         }
 
-        const affordableCombos = restaurant.combos.filter((combo) => combo.price <= numericBudget);
-        if (affordableCombos.length === 0) {
+        const bestCombo = generateBestCombo(restaurant.menuItems, numericBudget);
+        if (!bestCombo) {
           return null;
         }
-
-        const bestCombo = [...affordableCombos].sort((a, b) => {
-          if (b.valueScore !== a.valueScore) {
-            return b.valueScore - a.valueScore;
-          }
-          return a.price - b.price;
-        })[0];
 
         return {
           restaurant: restaurant.name,
           distance,
           walkMinutes: milesToWalkMinutes(distance),
           address: restaurant.address,
-          comboName: bestCombo.name,
-          comboPrice: bestCombo.price,
-          valueScore: bestCombo.valueScore,
+          comboTemplate: formatTemplate(bestCombo.template),
+          comboName: bestCombo.itemNames.join(" + "),
+          comboPrice: bestCombo.totalPrice,
+          valueScore: bestCombo.score,
         };
       })
       .filter((result): result is SearchResult => result !== null)
@@ -126,9 +129,14 @@ function App() {
               {results.map((result) => (
                 <li key={result.restaurant}>
                   <h3>{result.restaurant}</h3>
-                  <p>{result.comboName}</p>
-                  <p>
-                    ${result.comboPrice.toFixed(2)} • {result.distance.toFixed(1)} mi • ~{result.walkMinutes} min walk • Value {result.valueScore}
+                  <p className="result-address">{result.address}</p>
+                  <p className="result-combo">{result.comboName}</p>
+                  <p className="result-template">Template: {result.comboTemplate}</p>
+                  <p className="result-meta">
+                    <span>${result.comboPrice.toFixed(2)}</span>
+                    <span>{result.distance.toFixed(1)} mi</span>
+                    <span>~{result.walkMinutes} min walk</span>
+                    <span>Score {result.valueScore.toFixed(2)}</span>
                   </p>
                 </li>
               ))}
