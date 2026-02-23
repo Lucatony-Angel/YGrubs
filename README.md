@@ -12,7 +12,7 @@ College students often need a quick answer to:
 
 I built YGrubs to solve that in one search flow with transparent ranking logic and a mobile-friendly UI.
 
-## Internship-Relevant Highlights
+## Highlights
 
 - Built an end-to-end React + TypeScript product from problem definition through deployment-ready build.
 - Modeled and normalized local data for `10` restaurants, `14` Yale colleges, and `170` menu items.
@@ -137,20 +137,6 @@ From `app/`:
 - No authentication, saved preferences, or recommendation history.
 - Ranking is rules-based and not yet adapted to individual user behavior.
 - No automated unit/integration test suite yet for recommendation logic.
-
-## What I Would Build Next
-
-- Live menu and pricing sync from restaurant APIs.
-- User preferences (dietary filters, cuisine priorities).
-- Better geo features (time-of-day traffic and route-aware ETA).
-- Automated test coverage for ranking edge cases and regression prevention.
-
-## Resume Bullets
-
-- Built and shipped YGrubs, a React + TypeScript web app that recommends budget-fit pickup meal combos across `10` restaurants and `14` Yale residential colleges.
-- Designed and implemented deterministic ranking logic (distance + value scoring) with combo generation across `170` curated menu items.
-- Implemented input validation, no-result handling, and reproducible QA scenarios to improve reliability and demo readiness.
-- Deployed a production build on Vercel and documented architecture, constraints, and next-step roadmap for maintainability.
 
 ## Links
 
