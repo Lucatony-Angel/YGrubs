@@ -1,53 +1,158 @@
 # YGrubs
 
-YGrubs is a pickup-focused web app for Yale students that helps users find nearby food options within a budget. Users choose a Yale residential college as their starting point, enter a budget, and get a ranked list of restaurants with suggested meal combos that stay at or under budget, sorted by walking distance and value.
+YGrubs is a pickup-focused web app that helps Yale students find food options near their residential college that fit a target budget.
 
-## MVP Goal
+Users select a college and budget, then receive ranked restaurant results with a suggested meal combo under budget, plus distance and estimated walking time.
 
-Deliver a working web app that answers one question quickly:
+## Why This Project
 
-> "Where can I get pickup food near my college that fits my budget right now?"
+College students often need a quick answer to:
 
-## MVP Definition of Done
+> "What can I pick up nearby right now that I can afford?"
 
-- [ ] User can choose a Yale residential college as a starting point.
-- [ ] User can enter a budget amount.
-- [ ] App shows restaurants within a defined walking radius.
-- [ ] App returns at least one suggested combo per restaurant at or under budget.
-- [ ] Results are sorted by distance, then value.
-- [ ] Menu/combo data is available for the initial launch set of restaurants.
-- [ ] Basic error/empty states are handled (no results, invalid budget, missing data).
+I built YGrubs to solve that in one search flow with transparent ranking logic and a mobile-friendly UI.
 
-## In Scope (MVP)
+## Internship-Relevant Highlights
 
-- Pickup-only recommendations.
-- Curated menu data (not full live integrations).
-- Basic ranking logic (distance + value).
-- Mobile-friendly web UI.
+- Built an end-to-end React + TypeScript product from problem definition through deployment-ready build.
+- Modeled and normalized local data for `10` restaurants, `14` Yale colleges, and `170` menu items.
+- Implemented a deterministic recommendation algorithm with clear ranking and tie-break behavior.
+- Added user-facing validation and empty/error states for invalid budgets and no-match scenarios.
+- Verified recommendation outputs across multiple budget tiers and college inputs (`app/QA_NOTES.md`).
 
-## Out of Scope (Post-MVP)
+## My Role
 
-- Delivery options.
-- Real-time menu API integrations.
-- Payments, ordering, or checkout.
-- Personalized accounts/recommendation history.
-- Non-Yale geographies.
+Solo developer responsible for:
 
-## Local Setup
+- Product scope and UX flow definition.
+- Data modeling for colleges, restaurant distances, and menu items.
+- Recommendation algorithm design and implementation.
+- Frontend implementation with React + TypeScript.
+- QA pass documentation and deployment readiness.
 
-This repository is currently in planning/bootstrap stage.
+## Features
 
-1. Clone the repo.
-2. Open it in your editor.
-3. Keep all MVP decisions and scope changes documented in this `README.md`.
-4. As soon as app scaffolding is added, update this section with exact run commands.
+- College-based search origin (all Yale residential colleges included).
+- Budget-aware combo generation with four templates:
+  - `main`
+  - `main+side`
+  - `main+drink`
+  - `main+side+drink`
+- Filters results to a `1.3` mile pickup radius.
+- Ranks by:
+  1. Distance (ascending)
+  2. Value score (descending tie-break)
+- Shows per-result:
+  - Suggested combo
+  - Total combo price
+  - Walking distance
+  - Estimated walk time
+  - Value score tier
 
+## Tech Stack
 
-## First Development Milestones
+- Frontend: React 19, TypeScript, Vite
+- Styling: CSS
+- Tooling: ESLint, TypeScript compiler
+- Analytics: `@vercel/speed-insights`
 
-1. Create app scaffold and confirm it runs locally.
-2. Define the MVP restaurant data format (JSON/DB schema).
-3. Implement budget filter + combo selection logic.
-4. Add distance calculation/ranking from selected residential college.
-5. Build a simple results page and validate against 3-5 test budgets.
+## Recommendation Logic (High Level)
 
+1. Split each restaurant's menu into `main`, `side`, and `drink` categories.
+2. Generate all valid combo candidates under the user's budget for the supported templates.
+3. Score each combo using:
+   - Template weight
+   - Budget fit (closer to budget is better)
+   - Average item rating (when available)
+4. Select each restaurant's best combo.
+5. Sort all restaurants by distance first, then score.
+
+Core implementation:
+
+- `app/src/Lib/reccomend.ts`
+- `app/src/data/restaurants.ts`
+- `app/src/App.tsx`
+
+## Engineering Decisions
+
+- Curated dataset over live API integration:
+  - Chosen to deliver a reliable MVP quickly with deterministic outputs and no external API dependency risk.
+- Distance-first ranking, value-score tiebreak:
+  - Prioritizes practical pickup convenience while still rewarding better budget-fit meal options.
+- Deterministic scoring instead of personalized ranking:
+  - Makes behavior predictable, easier to test, and simpler to explain during code review.
+
+## Project Structure
+
+```text
+app/
+  src/
+    App.tsx                  # Search flow + results rendering
+    Lib/reccomend.ts         # Combo generation and scoring
+    data/restaurants.ts      # Colleges, restaurants, menu data, distances
+    main.tsx                 # App bootstrap + Speed Insights
+  QA_NOTES.md                # Manual QA snapshots and result matrix
+```
+
+## Run Locally
+
+Requirements:
+
+- Node.js `20.19+` (Vite 7 requirement)
+- npm
+
+Commands:
+
+```bash
+cd app
+npm install
+npm run dev
+```
+
+Open the local URL printed by Vite (typically `http://localhost:5173`).
+
+## Available Scripts
+
+From `app/`:
+
+- `npm run dev` - Start local dev server
+- `npm run build` - Type-check and build for production
+- `npm run preview` - Preview production build locally
+- `npm run lint` - Run ESLint
+
+## Quality and Validation
+
+- Manual QA documented in `app/QA_NOTES.md` across multiple colleges and budgets.
+- Build passes with production output generation via `npm run build`.
+
+## Product Constraints
+
+- Pickup-only recommendations (no delivery or checkout flow).
+- Uses curated menu data (no live delivery API integration).
+- Focused on Yale/New Haven geography for v1.
+
+## Known Limitations
+
+- Menu prices and item availability are static and may drift from real-world changes.
+- No authentication, saved preferences, or recommendation history.
+- Ranking is rules-based and not yet adapted to individual user behavior.
+- No automated unit/integration test suite yet for recommendation logic.
+
+## What I Would Build Next
+
+- Live menu and pricing sync from restaurant APIs.
+- User preferences (dietary filters, cuisine priorities).
+- Better geo features (time-of-day traffic and route-aware ETA).
+- Automated test coverage for ranking edge cases and regression prevention.
+
+## Resume Bullets
+
+- Built and shipped YGrubs, a React + TypeScript web app that recommends budget-fit pickup meal combos across `10` restaurants and `14` Yale residential colleges.
+- Designed and implemented deterministic ranking logic (distance + value scoring) with combo generation across `170` curated menu items.
+- Implemented input validation, no-result handling, and reproducible QA scenarios to improve reliability and demo readiness.
+- Deployed a production build on Vercel and documented architecture, constraints, and next-step roadmap for maintainability.
+
+## Links
+
+- Live Demo: https://y-grubs.vercel.app/
+- LinkedIn: https://www.linkedin.com/in/lucatony-angel-valencia-024877243/ (project is listed under the Projects section)
